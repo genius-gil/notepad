@@ -1,4 +1,5 @@
 import re
+from datetime import date, timedelta
 
 # 삼성전자 재무제표 encparam, id 값 가져오기 : re 정규식 활용
 # 삼성전자 cmp_cd : 005930
@@ -81,3 +82,21 @@ fin['id'] = result_id
 
 print(fin)
 
+print('-'*50)
+
+order_date = ['오늘', '어제', '그제', '지난주', '지난달', '6개월전']
+print_date = []
+for i in order_date:
+    if i in '오늘':
+        print_date.append(str(date.today()))
+    elif i in '어제':
+        print_date.append(str(date.today() - timedelta(days=1)))
+    elif i in '그제':
+        print_date.append(str(date.today() - timedelta(days=2)))
+    elif i in '지난주':
+        print_date.append(str(date.today() - timedelta(weeks=1)))
+    elif i in '지난달':
+        print_date.append(str(date.today() - timedelta(weeks=4)))
+    elif i in '6개월전':
+        print_date.append(str(date.today() - timedelta(weeks=4*6)))
+print('오늘 : {}, 어제 : {}, 그제 : {}, 지난주 : {}, 지난달 : {}, 6개월전 : {}'.format(*print_date))
