@@ -84,6 +84,7 @@ print(fin)
 
 print('-'*50)
 
+# 날짜(일수) 계산 및 전개 연산자 : 리스트 기반
 order_date = ['오늘', '어제', '그제', '지난주', '지난달', '6개월전']
 print_date = []
 for i in order_date:
